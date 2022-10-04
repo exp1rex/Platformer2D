@@ -75,6 +75,7 @@ public class Hero : Entity
         CheckGround();
     }
 
+    // Движение игрока
     private void Run()
     {
         if (isGrounded) State = States.run;
@@ -84,12 +85,14 @@ public class Hero : Entity
         spriteRenderer.flipX = dir.x < 0.0f;
     }
 
+    // Прыжок
     private void Jump()
     {
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         audioSource.PlayOneShot(jumpSound);
     }
 
+    // Проверка земли под игроком
     private void CheckGround()
     {
         Collider2D[] collider = Physics2D.OverlapCircleAll(groundCheck.position, 0.3f);
@@ -98,6 +101,7 @@ public class Hero : Entity
         if (!isGrounded) State = States.jump;
     }
 
+    // Получение урона
     public override void GetDamage()
     {
         lives -= 1;
