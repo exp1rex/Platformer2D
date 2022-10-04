@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Coin : MonoBehaviour
 {
+    // Монетка
     public AudioSource audioSource;
     public AudioClip audioClip;
     public Text coinstText;
